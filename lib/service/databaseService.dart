@@ -8,6 +8,7 @@ class DataBaseService {
   DataBaseService({this.uid});
 
   User userDataFromSnapshot(DocumentSnapshot snapshot) {
+    // print(snapshot.data);
     return User(
       uid: uid,
       username: snapshot.data['username'],
@@ -18,7 +19,7 @@ class DataBaseService {
   }
 
   Future updateUserData(String username, String email, String status,
-      DateTime dob, bool isverified) async {
+      Timestamp dob, bool isverified) async {
     return await _reference.document(uid).setData({
       'username': username,
       'email': email,
@@ -28,8 +29,8 @@ class DataBaseService {
     });
   }
 
-  Stream<User> get userData {
-    return _reference.document(uid).snapshots().map(userDataFromSnapshot);
+  Stream<DocumentSnapshot> get userData {
+    return _reference.document(uid).snapshots();
   }
 
   Stream<QuerySnapshot> get alluserData {

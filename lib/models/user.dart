@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class User {
   String uid;
   String username;
   String email;
   String status;
-  DateTime dob = DateTime(2000);
+  Timestamp dob = Timestamp.fromDate(DateTime(2000));
   bool isverified = false;
   // String photoUrl;
 

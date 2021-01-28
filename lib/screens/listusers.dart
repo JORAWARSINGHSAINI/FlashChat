@@ -77,7 +77,10 @@ class _ListUsersState extends State<ListUsers> {
                         backgroundColor: Color(0xFA5E90FF),
                       ),
                       body: profilePage
-                          ? Profile(toggleProfile: toggleProfile, user: user)
+                          ? Profile(
+                              toggleProfile: toggleProfile,
+                              user: user,
+                            )
                           : Column(
                               children: [
                                 Container(
@@ -147,6 +150,13 @@ class _ListUsersState extends State<ListUsers> {
                                             },
                                             title: Text(
                                                 users[index].data['username']),
+                                            leading: Hero(
+                                              tag: users[index].data['email'],
+                                              child: CircleAvatar(
+                                                backgroundImage: AssetImage(
+                                                    'images/avatar.png'),
+                                              ),
+                                            ),
                                           ),
                                         );
                                       }),

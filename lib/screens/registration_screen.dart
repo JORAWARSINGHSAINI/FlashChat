@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flash_chat/components/loader.dart';
 import 'package:flash_chat/components/textdecoration.dart';
 import 'package:flash_chat/screens/listusers.dart';
@@ -142,8 +143,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                           email: email.trim(),
                                           password: password.trim());
                                   await DataBaseService(uid: user.uid)
-                                      .updateUserData(username, email,
-                                          'Hello World', DateTime(2000), false);
+                                      .updateUserData(
+                                          username,
+                                          email,
+                                          'Hello World',
+                                          Timestamp.fromDate(DateTime(2000)),
+                                          false);
                                 } catch (e) {
                                   print(e.toString());
                                 }

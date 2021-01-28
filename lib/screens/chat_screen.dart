@@ -72,11 +72,25 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     final Map<String, Object> receiver =
         ModalRoute.of(context).settings.arguments;
-    print(receiver);
+    // print(receiver);
     return Scaffold(
       appBar: AppBar(
         title: receiver['username'] != null
-            ? Text(receiver['username'])
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Hero(
+                    tag: receiver['email'],
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage('images/avatar.png'),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(receiver['username']),
+                ],
+              )
             : Text('⚡️Chat'),
         centerTitle: true,
         backgroundColor: Color(0xFA5E90FF),
@@ -103,10 +117,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   FlatButton(
                     onPressed: () {
-                      // if (loggedInUser.isEmailVerified == false) {
-                      //   _showMyDialog();
-                      //   return;
-                      // }
+                      if (loggedInUser.isEmailVerified == false) {
+                        _showMyDialog();
+                        return;
+                      }
                       if (messageText == null || receiver['email'] == null)
                         return;
                       messageTextController.clear();
