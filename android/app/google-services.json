@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "233475570552",
+    "project_id": "flash-chat-8989c",
+    "storage_bucket": "flash-chat-8989c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233475570552:android:e8edc72fb69cf2af79a68d",
+        "android_client_info": {
+          "package_name": "co.AjayGulia.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233475570552-dh62cbj9jouhd5e9t6jmmq22n3rtkubv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_kW4qHBSkhwGDl9baJvt49PwoVCsAPZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233475570552-dh62cbj9jouhd5e9t6jmmq22n3rtkubv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
