@@ -16,19 +16,7 @@ class _EditScreenState extends State<EditScreen> {
   String status;
   String email;
   DateTime dob;
-
-  _selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
-      context: context,
-      initialDate: dob, // Refer step 1
-      firstDate: DateTime(1980),
-      lastDate: DateTime(2200),
-    );
-    if (picked != null)
-      setState(() {
-        dob = picked;
-      });
-  }
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -37,7 +25,7 @@ class _EditScreenState extends State<EditScreen> {
     username = widget.user.username;
     status = widget.user.status;
     dob = DateTime.fromMicrosecondsSinceEpoch(widget.user.dob.seconds * 1000);
-    print(dob);
+    // print(dob);
     email = widget.user.email;
   }
 
@@ -48,12 +36,14 @@ class _EditScreenState extends State<EditScreen> {
         height: 700,
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
         child: Form(
+          key: _formKey,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Center(
                 child: Text(
-                  'Update Settings',
+                  'Update Profile',
                   style: TextStyle(fontSize: 20, fontFamily: 'Righteous'),
                 ),
               ),
@@ -71,6 +61,7 @@ class _EditScreenState extends State<EditScreen> {
                 onChanged: (val) {
                   username = val;
                 },
+                validator: (val) => val.length > 0 ? null : 'Enter Username',
               ),
               SizedBox(
                 height: 30,
@@ -87,23 +78,7 @@ class _EditScreenState extends State<EditScreen> {
                     status = val;
                   });
                 },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: <Widget>[
-                  InputDatePickerFormField(
-                    onDateSaved: (value) {
-                      setState(() {
-                        dob = value;
-                      });
-                    },
-                    initialDate: DateTime(2000),
-                    firstDate: DateTime(1990),
-                    lastDate: DateTime(2050),
-                  ),
-                ],
+                validator: (val) => val.length > 0 ? null : 'Enter status',
               ),
               SizedBox(
                 height: 20,
@@ -119,8 +94,14 @@ class _EditScreenState extends State<EditScreen> {
                         fontFamily: 'Indie-Flower'),
                   ),
                   onPressed: () {
-                    DataBaseService(uid: widget.user.uid).updateUserData(
-                        username, email, status, Timestamp.fromDate(dob), true);
+                    if (_formKey.currentState.validate()) {
+                      DataBaseService(uid: widget.user.uid).updateUserData(
+                          username,
+                          email,
+                          status,
+                          Timestamp.fromDate(dob),
+                          true);
+                    }
                   },
                 ),
               )

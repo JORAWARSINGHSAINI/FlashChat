@@ -94,7 +94,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: IconButton(
                       alignment: Alignment.centerRight,
                       icon: Icon(
-                        Icons.supervised_user_circle_rounded,
+                        Icons.perm_contact_cal_rounded,
                         color: Colors.white,
                       ),
                       onPressed: () {

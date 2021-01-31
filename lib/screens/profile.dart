@@ -50,10 +50,30 @@ class _ProfileState extends State<Profile> {
 
   void _modalBottomSheetMenu(User user) {
     showModalBottomSheet(
+        isScrollControlled: true,
         context: context,
         builder: (builder) {
           return EditScreen(user: user);
         });
+  }
+
+  _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate, // Refer step 1
+      firstDate: DateTime(1990),
+      lastDate: DateTime(2200),
+    );
+    if (picked != null && picked != selectedDate)
+      DataBaseService(uid: widget.user.uid).updateUserData(
+          _user.username,
+          _user.email,
+          _user.status,
+          Timestamp.fromDate(picked),
+          widget.user.isEmailVerified);
+    // setState(() {
+    //   selectedDate = picked;
+    // });
   }
 
   @override
@@ -248,6 +268,12 @@ class _ProfileState extends State<Profile> {
                                 fontSize: 20.0,
                                 fontFamily: 'Lobster'),
                           ))),
+                          IconButton(
+                            icon: Icon(Icons.calendar_today_outlined),
+                            color: Colors.blueGrey,
+                            onPressed: () =>
+                                _selectDate(context), // Refer step 3
+                          )
                         ],
                       ),
                       SizedBox(
