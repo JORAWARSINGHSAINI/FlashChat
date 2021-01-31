@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/components/loader.dart';
 import 'package:flash_chat/screens/chat_screen.dart';
+import 'package:flash_chat/screens/editScreen.dart';
 import 'package:flash_chat/screens/profile.dart';
 import 'package:flash_chat/service/databaseService.dart';
 import 'package:flutter/material.dart';

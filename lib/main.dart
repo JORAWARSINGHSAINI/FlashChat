@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flash_chat/screens/oprofile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flash_chat/screens/chat_screen.dart';
@@ -16,6 +17,7 @@ class FlashChat extends StatelessWidget {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         // ListUsers.id: (context) => ListUsers(),
         ChatScreen.id: (context) => ChatScreen(),
+        OProfile.id: (context) => OProfile(),
       },
     );
   }

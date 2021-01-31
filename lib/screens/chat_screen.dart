@@ -1,4 +1,4 @@
-import 'package:flash_chat/models/user.dart';
+import 'package:flash_chat/screens/oprofile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -73,6 +73,7 @@ class _ChatScreenState extends State<ChatScreen> {
     final Map<String, Object> receiver =
         ModalRoute.of(context).settings.arguments;
     // print(receiver);
+
     return Scaffold(
       appBar: AppBar(
         title: receiver['username'] != null
@@ -89,6 +90,20 @@ class _ChatScreenState extends State<ChatScreen> {
                     width: 10,
                   ),
                   Text(receiver['username']),
+                  Expanded(
+                    child: IconButton(
+                      alignment: Alignment.centerRight,
+                      icon: Icon(
+                        Icons.supervised_user_circle_rounded,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, OProfile.id,
+                            arguments: receiver);
+                      },
+                      // label: Text('Profile'),
+                    ),
+                  )
                 ],
               )
             : Text('⚡️Chat'),

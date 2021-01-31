@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/components/loader.dart';
 import 'package:flash_chat/models/user.dart';
+import 'package:flash_chat/screens/editScreen.dart';
 import 'package:flash_chat/service/databaseService.dart';
 import 'package:flutter/material.dart';
 
@@ -18,25 +19,6 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   DateTime selectedDate = DateTime.now();
   User _user;
-
-  _selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
-      context: context,
-      initialDate: selectedDate, // Refer step 1
-      firstDate: DateTime(1980),
-      lastDate: DateTime(2200),
-    );
-    if (picked != null && picked != selectedDate)
-      DataBaseService(uid: widget.user.uid).updateUserData(
-          _user.username,
-          _user.email,
-          _user.status,
-          Timestamp.fromDate(picked),
-          widget.user.isEmailVerified);
-    // setState(() {
-    //   selectedDate = picked;
-    // });
-  }
 
   Future<void> _showMyDialog() async {
     return showDialog<void>(
@@ -64,6 +46,14 @@ class _ProfileState extends State<Profile> {
         );
       },
     );
+  }
+
+  void _modalBottomSheetMenu(User user) {
+    showModalBottomSheet(
+        context: context,
+        builder: (builder) {
+          return EditScreen(user: user);
+        });
   }
 
   @override
@@ -219,12 +209,14 @@ class _ProfileState extends State<Profile> {
                           SizedBox(
                             width: 30,
                           ),
-                          Text(
-                            _user.status ?? 'Status',
-                            style: TextStyle(
-                                color: Colors.blueGrey,
-                                fontSize: 20.0,
-                                fontFamily: 'Lobster'),
+                          Expanded(
+                            child: Text(
+                              _user.status ?? 'Status',
+                              style: TextStyle(
+                                  color: Colors.blueGrey,
+                                  fontSize: 20.0,
+                                  fontFamily: 'Lobster'),
+                            ),
                           ),
                         ],
                       ),
@@ -256,12 +248,6 @@ class _ProfileState extends State<Profile> {
                                 fontSize: 20.0,
                                 fontFamily: 'Lobster'),
                           ))),
-                          IconButton(
-                            icon: Icon(Icons.edit),
-                            color: Colors.blueGrey,
-                            onPressed: () =>
-                                _selectDate(context), // Refer step 3
-                          ),
                         ],
                       ),
                       SizedBox(
@@ -273,6 +259,13 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                     ],
+                  ),
+                  floatingActionButton: FloatingActionButton(
+                    backgroundColor: Color(0xFA5E90FF),
+                    onPressed: () {
+                      _modalBottomSheetMenu(_user);
+                    },
+                    child: Icon(Icons.edit),
                   ),
                 );
         });
