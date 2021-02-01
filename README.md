@@ -26,23 +26,26 @@
 
 ### Login UI
 
-<img src="images/7.jpeg" width="300" height="560" align="left" > 
-<img src="images/8.jpeg" width="300" height="560" align="center" > 
+<img src="images/7.jpeg" width="260" height="540" align="left" > 
+<img src="images/8.jpeg" width="260" height="540" align="center" > 
 
 ### Main App UI
+
 <div>
-<img src="images/9.jpeg" width="300" height="560"  align="left"> 
-<img src="images/3.jpeg" width="300" height="560" align="center"> 
-<img src="images/4.jpeg" width="300" height="560" align="right"> 
+<img src="images/9.jpeg" width="260" height="540"  align="left"> 
+<img src="images/3.jpeg" width="260" height="540" align="center"> 
+<img src="images/4.jpeg" width="260" height="540" align="right"> 
 </div>
 
 
 ### Profile Page Options And other people profile page
+
 <div>
-<img src="images/2.jpeg" width="300" height="560" align="left" > 
-<img src="images/6.jpeg" width="300" height="560" align="center" > 
-<img src="images/1.jpeg" width="300" height="560" align="right" > 
+<img src="images/2.jpeg" width="260" height="540" align="left" > 
+<img src="images/6.jpeg" width="260" height="540" align="center" > 
+<img src="images/1.jpeg" width="260" height="540" align="right" > 
 </div>
+
 ### Displays Relevant Validation Erros
 
 <div>
