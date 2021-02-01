@@ -1,4 +1,4 @@
-# Local.ly
+# ⚡️ Chat
 
 ## This is a Flutter based modern Android and iOS messageing App.
 ## Users can send personal messages to other users.
