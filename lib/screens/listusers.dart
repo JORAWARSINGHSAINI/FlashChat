@@ -134,7 +134,7 @@ class _ListUsersState extends State<ListUsers> {
                                 ),
                                 SizedBox(
                                   width: 400,
-                                  height: 700,
+                                  height: 650,
                                   child: ListView.builder(
                                       padding: EdgeInsets.symmetric(
                                           vertical: 10, horizontal: 0),
