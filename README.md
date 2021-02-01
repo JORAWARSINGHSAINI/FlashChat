@@ -26,19 +26,15 @@
 
 ### Login UI
 
-  <img src="images/7.jpeg" width="300" height="560" align="left" > 
-  <img src="images/8.jpeg" width="300" height="560" align="center" > 
+<img src="images/7.jpeg" width="300" height="560" align="left" > 
+<img src="images/8.jpeg" width="300" height="560" align="center" > 
 
 ### Main App UI
 
 <img src="images/9.jpeg" width="300" height="560"  align="left"> 
-  <img src="images/4.jpeg" width="300" height="560" align="center"> 
-  <img src="images/5.jpeg" width="300" height="560" align="right"> 
+<img src="images/4.jpeg" width="300" height="560" align="center"> 
+<img src="images/3.jpeg" width="300" height="560" align="right"> 
 
-### Users Profile Page And other people profile page
-<img src="images/4.jpeg" width="300" height="560" align="left" > 
- <img src="images/5.jpeg" width="300" height="560" align="center" > 
-  <img src="images/6.jpeg" width="300" height="560" align="right" > 
 
 ### Displays Relevant Validation Erros
 
