@@ -72,7 +72,7 @@ class _ListUsersState extends State<ListUsers> {
                                 auth.signOut();
                               }),
                         ],
-                        title: Text('⚡️Loca.ly'),
+                        title: Text('⚡️ Chat'),
                         centerTitle: true,
                         backgroundColor: Color(0xFA5E90FF),
                       ),
