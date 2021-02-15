@@ -7,7 +7,7 @@
 
 ## Functionalities and Pages:-
 
--> Registeration and SignUp Pages.
+# -> Registeration and SignUp Pages.
 -> User profile page with editing capabilites.
 -> Other people Profile Page
 -> Listing all users 
